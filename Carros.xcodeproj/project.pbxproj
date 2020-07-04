@@ -14,6 +14,10 @@
 		AB17F02524AFF15200BC9AAF /* Carros.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB17F02324AFF15200BC9AAF /* Carros.xcdatamodeld */; };
 		AB17F02724AFF15400BC9AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB17F02624AFF15400BC9AAF /* Assets.xcassets */; };
 		AB17F02A24AFF15400BC9AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB17F02824AFF15400BC9AAF /* LaunchScreen.storyboard */; };
+		AB17F03A24AFFACB00BC9AAF /* CarrosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */; };
+		AB17F03C24AFFAE300BC9AAF /* MarcasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */; };
+		AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */; };
+		AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F04024B000F600BC9AAF /* Tipos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		AB17F02624AFF15400BC9AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB17F02924AFF15400BC9AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB17F02B24AFF15400BC9AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosTableViewController.swift; sourceTree = "<group>"; };
+		AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcasTableViewController.swift; sourceTree = "<group>"; };
+		AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTableViewController.swift; sourceTree = "<group>"; };
+		AB17F04024B000F600BC9AAF /* Tipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +67,27 @@
 			isa = PBXGroup;
 			children = (
 				AB17F01A24AFF15200BC9AAF /* AppDelegate.swift */,
-				AB17F01C24AFF15200BC9AAF /* SceneDelegate.swift */,
+				AB17F03F24AFFC4A00BC9AAF /* SupportFiles */,
 				AB17F01E24AFF15200BC9AAF /* ViewController.swift */,
 				AB17F02024AFF15200BC9AAF /* Main.storyboard */,
-				AB17F02624AFF15400BC9AAF /* Assets.xcassets */,
-				AB17F02824AFF15400BC9AAF /* LaunchScreen.storyboard */,
 				AB17F02B24AFF15400BC9AAF /* Info.plist */,
 				AB17F02324AFF15200BC9AAF /* Carros.xcdatamodeld */,
+				AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */,
+				AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */,
+				AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */,
+				AB17F04024B000F600BC9AAF /* Tipos.swift */,
 			);
 			path = Carros;
+			sourceTree = "<group>";
+		};
+		AB17F03F24AFFC4A00BC9AAF /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AB17F01C24AFF15200BC9AAF /* SceneDelegate.swift */,
+				AB17F02624AFF15400BC9AAF /* Assets.xcassets */,
+				AB17F02824AFF15400BC9AAF /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +164,10 @@
 				AB17F01F24AFF15200BC9AAF /* ViewController.swift in Sources */,
 				AB17F02524AFF15200BC9AAF /* Carros.xcdatamodeld in Sources */,
 				AB17F01B24AFF15200BC9AAF /* AppDelegate.swift in Sources */,
+				AB17F03C24AFFAE300BC9AAF /* MarcasTableViewController.swift in Sources */,
+				AB17F03A24AFFACB00BC9AAF /* CarrosTableViewController.swift in Sources */,
+				AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */,
+				AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */,
 				AB17F01D24AFF15200BC9AAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
