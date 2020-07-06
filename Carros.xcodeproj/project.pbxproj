@@ -18,6 +18,17 @@
 		AB17F03C24AFFAE300BC9AAF /* MarcasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */; };
 		AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */; };
 		AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F04024B000F600BC9AAF /* Tipos.swift */; };
+		ABD19FAA24B1260800EDB2DA /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FA924B1260800EDB2DA /* SigninViewController.swift */; };
+		ABD19FAC24B1262200EDB2DA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */; };
+		ABD19FAE24B164F100EDB2DA /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */; };
+		ABD19FB024B2777B00EDB2DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FAF24B2777B00EDB2DA /* Utils.swift */; };
+		ABD19FC324B2894900EDB2DA /* Usuarios+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FBD24B2894900EDB2DA /* Usuarios+CoreDataClass.swift */; };
+		ABD19FC424B2894900EDB2DA /* Usuarios+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FBE24B2894900EDB2DA /* Usuarios+CoreDataProperties.swift */; };
+		ABD19FC524B2894900EDB2DA /* Modelos+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FBF24B2894900EDB2DA /* Modelos+CoreDataClass.swift */; };
+		ABD19FC624B2894900EDB2DA /* Modelos+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FC024B2894900EDB2DA /* Modelos+CoreDataProperties.swift */; };
+		ABD19FC724B2894900EDB2DA /* Marcas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FC124B2894900EDB2DA /* Marcas+CoreDataClass.swift */; };
+		ABD19FC824B2894900EDB2DA /* Marcas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FC224B2894900EDB2DA /* Marcas+CoreDataProperties.swift */; };
+		ABD19FCA24B28A0700EDB2DA /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FC924B28A0700EDB2DA /* DatabaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +45,17 @@
 		AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcasTableViewController.swift; sourceTree = "<group>"; };
 		AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTableViewController.swift; sourceTree = "<group>"; };
 		AB17F04024B000F600BC9AAF /* Tipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipos.swift; sourceTree = "<group>"; };
+		ABD19FA924B1260800EDB2DA /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		ABD19FAF24B2777B00EDB2DA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		ABD19FBD24B2894900EDB2DA /* Usuarios+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Usuarios+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FBE24B2894900EDB2DA /* Usuarios+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Usuarios+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FBF24B2894900EDB2DA /* Modelos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelos+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FC024B2894900EDB2DA /* Modelos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelos+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FC124B2894900EDB2DA /* Marcas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marcas+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FC224B2894900EDB2DA /* Marcas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marcas+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		ABD19FC924B28A0700EDB2DA /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +88,27 @@
 		AB17F01924AFF15200BC9AAF /* Carros */ = {
 			isa = PBXGroup;
 			children = (
+				ABD19FBD24B2894900EDB2DA /* Usuarios+CoreDataClass.swift */,
+				ABD19FBE24B2894900EDB2DA /* Usuarios+CoreDataProperties.swift */,
+				ABD19FBF24B2894900EDB2DA /* Modelos+CoreDataClass.swift */,
+				ABD19FC024B2894900EDB2DA /* Modelos+CoreDataProperties.swift */,
+				ABD19FC124B2894900EDB2DA /* Marcas+CoreDataClass.swift */,
+				ABD19FC224B2894900EDB2DA /* Marcas+CoreDataProperties.swift */,
 				AB17F01A24AFF15200BC9AAF /* AppDelegate.swift */,
 				AB17F03F24AFFC4A00BC9AAF /* SupportFiles */,
 				AB17F01E24AFF15200BC9AAF /* ViewController.swift */,
 				AB17F02024AFF15200BC9AAF /* Main.storyboard */,
+				ABD19FAF24B2777B00EDB2DA /* Utils.swift */,
 				AB17F02B24AFF15400BC9AAF /* Info.plist */,
 				AB17F02324AFF15200BC9AAF /* Carros.xcdatamodeld */,
 				AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */,
 				AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */,
 				AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */,
 				AB17F04024B000F600BC9AAF /* Tipos.swift */,
+				ABD19FA924B1260800EDB2DA /* SigninViewController.swift */,
+				ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */,
+				ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */,
+				ABD19FC924B28A0700EDB2DA /* DatabaseController.swift */,
 			);
 			path = Carros;
 			sourceTree = "<group>";
@@ -163,12 +196,23 @@
 			files = (
 				AB17F01F24AFF15200BC9AAF /* ViewController.swift in Sources */,
 				AB17F02524AFF15200BC9AAF /* Carros.xcdatamodeld in Sources */,
+				ABD19FC624B2894900EDB2DA /* Modelos+CoreDataProperties.swift in Sources */,
+				ABD19FAC24B1262200EDB2DA /* SignupViewController.swift in Sources */,
+				ABD19FAE24B164F100EDB2DA /* MainNavigationController.swift in Sources */,
+				ABD19FC424B2894900EDB2DA /* Usuarios+CoreDataProperties.swift in Sources */,
 				AB17F01B24AFF15200BC9AAF /* AppDelegate.swift in Sources */,
 				AB17F03C24AFFAE300BC9AAF /* MarcasTableViewController.swift in Sources */,
+				ABD19FC824B2894900EDB2DA /* Marcas+CoreDataProperties.swift in Sources */,
+				ABD19FCA24B28A0700EDB2DA /* DatabaseController.swift in Sources */,
 				AB17F03A24AFFACB00BC9AAF /* CarrosTableViewController.swift in Sources */,
 				AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */,
 				AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */,
 				AB17F01D24AFF15200BC9AAF /* SceneDelegate.swift in Sources */,
+				ABD19FC724B2894900EDB2DA /* Marcas+CoreDataClass.swift in Sources */,
+				ABD19FAA24B1260800EDB2DA /* SigninViewController.swift in Sources */,
+				ABD19FB024B2777B00EDB2DA /* Utils.swift in Sources */,
+				ABD19FC324B2894900EDB2DA /* Usuarios+CoreDataClass.swift in Sources */,
+				ABD19FC524B2894900EDB2DA /* Modelos+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

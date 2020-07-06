@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Marca" representedClassName="Marca" syncable="YES" codeGenerationType="class">
+    <entity name="Marcas" representedClassName=".Marcas" syncable="YES">
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="sigla" optional="YES" attributeType="String"/>
         <attribute name="tipo" optional="YES" attributeType="String"/>
+        <relationship name="usuarios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuarios"/>
     </entity>
-    <entity name="Modelo" representedClassName="Modelo" syncable="YES" codeGenerationType="class">
+    <entity name="Modelos" representedClassName=".Modelos" syncable="YES">
         <attribute name="ano" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
-        <relationship name="marcas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marca"/>
+        <relationship name="marcas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marcas"/>
+    </entity>
+    <entity name="Usuarios" representedClassName=".Usuarios" syncable="YES">
+        <attribute name="cpf" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="genero" optional="YES" attributeType="String"/>
+        <attribute name="idade" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="senha" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Marca" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Modelo" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="Marcas" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Modelos" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="Usuarios" positionX="-63" positionY="27" width="128" height="133"/>
     </elements>
 </model>
