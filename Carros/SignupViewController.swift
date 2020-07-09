@@ -47,26 +47,32 @@ class SignupViewController: UIViewController {
     
     @IBAction func saveUserButton(_ sender: UIButton) {
         
-//        if let wine = NSEntityDescription.insertNewObject(forEntityName: "Vinho", into: DatabaseController.persistentContainer.viewContext) as? Vinho {
-//                                          wine.nome = wineName
-//                                          wine.pais = wineCountry
-//                                          wine.vinicola = winery
-//                                          self.grape?.addToVinhos(wine)
-//                                          DatabaseController.saveContext()
-//                                          self.reloadWineData()
-//                                      }
+        if let emailAlreadyExists = DatabaseController.findUserByEmail(email: emailTextField.text ?? "")
+        {
+            let alert = UIAlertController(title: "Notificação", message: "E-mail \(emailAlreadyExists.email!) já foi cadastrado, utilize outro!.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+               NSLog("The \"OK\" alert occured.")
+               }))
+               self.present(alert, animated: true, completion: nil)
 
-    
-        if let usuario = NSEntityDescription.insertNewObject(forEntityName: "Usuarios", into: DatabaseController.persistentContainer.viewContext) as? Usuarios {
-            usuario.nome = nomeTextField.text
-            usuario.genero = generoTextField.text
-            usuario.cpf = cpfTextField.text
-            usuario.email = emailTextField.text
-            usuario.senha = passwordTextField.text
-            user = usuario
-            DatabaseController.saveContext()
+        } else {
+               if let usuario = NSEntityDescription.insertNewObject(forEntityName: "Usuarios", into: DatabaseController.persistentContainer.viewContext) as? Usuarios {
+                   usuario.nome = nomeTextField.text
+                   usuario.genero = generoTextField.text
+                   usuario.cpf = cpfTextField.text
+                   usuario.email = emailTextField.text
+                   usuario.senha = passwordTextField.text
+                   user = usuario
+                   DatabaseController.saveContext()
+               }
+               
+            let alert = UIAlertController(title: "Notificação", message: "Usuário cadastrado com sucesso.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+               NSLog("The \"OK\" alert occured.")
+               }))
+               self.present(alert, animated: true, completion: nil)
+
         }
-
     }
     
     

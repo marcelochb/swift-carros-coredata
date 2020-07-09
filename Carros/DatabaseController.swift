@@ -55,4 +55,31 @@ class DatabaseController
               }
           }
       }
+    
+    static func findUserByEmail(email: String) -> Usuarios? {
+        do {
+             if let usuarios = try DatabaseController.persistentContainer.viewContext.fetch(Usuarios.fetchRequest()) as? [Usuarios]
+             {
+                for usuario in usuarios {
+                     if usuario.email == email {
+                        return usuario
+                     }
+                 }
+             }
+         } catch  {
+             print("Erro no banco, não conseguiu realizar a busca")
+         }
+        return nil
+    }
+    
+    static func verifySignin(email: String, senha: String) -> Usuarios? {
+        if let usuario = findUserByEmail(email: email)
+        {
+            if usuario.senha == senha
+            {
+                return usuario
+            }
+        }
+        return nil
+    }
 }

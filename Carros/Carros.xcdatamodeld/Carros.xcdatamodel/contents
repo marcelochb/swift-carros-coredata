@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Marcas" representedClassName=".Marcas" syncable="YES">
-        <attribute name="nome" optional="YES" attributeType="String"/>
-        <attribute name="sigla" optional="YES" attributeType="String"/>
-        <attribute name="tipo" optional="YES" attributeType="String"/>
+        <attribute name="nome" attributeType="String"/>
+        <attribute name="sigla" attributeType="String"/>
+        <attribute name="tipo" attributeType="String"/>
         <relationship name="usuarios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuarios"/>
     </entity>
     <entity name="Modelos" representedClassName=".Modelos" syncable="YES">
-        <attribute name="ano" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="ano" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" attributeType="String"/>
         <relationship name="marcas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marcas"/>
     </entity>
     <entity name="Usuarios" representedClassName=".Usuarios" syncable="YES">
-        <attribute name="cpf" optional="YES" attributeType="String"/>
-        <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="genero" optional="YES" attributeType="String"/>
-        <attribute name="idade" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="nome" optional="YES" attributeType="String"/>
-        <attribute name="senha" optional="YES" attributeType="String"/>
+        <attribute name="cpf" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="genero" attributeType="String"/>
+        <attribute name="idade" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" attributeType="String"/>
+        <attribute name="senha" attributeType="String"/>
     </entity>
     <elements>
         <element name="Marcas" positionX="-63" positionY="-18" width="128" height="103"/>

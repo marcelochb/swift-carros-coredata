@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class SigninViewController: UIViewController {
     
+    let defaults = UserDefaults.standard
     let utils = Utils()
+    var usuarios: [Usuarios] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //defaults.set(false, forKey: "signed") //logoff
+        if defaults.bool(forKey: "signed"), defaults.string(forKey: "email") != nil, defaults.string(forKey: "nome") != nil {
+                        navigateToMainScreen()
+        }
     }
     @IBOutlet weak var passwordTextField: UITextField! {
         didSet {
@@ -29,7 +37,17 @@ class SigninViewController: UIViewController {
         }
     }
     @IBAction func handleLogin(_ sender: UIButton) {
-       navigateToMainScreen()
+        
+        if verifyUserAndPassoword() {
+            navigateToMainScreen()
+        } else {
+            let alert = UIAlertController(title: "Notificação", message: "Usuário ou senha não encontrada, verifica seus dados!", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                   NSLog("The \"OK\" alert occured.")
+                   }))
+                   self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     private func navigateToMainScreen() {
@@ -41,6 +59,19 @@ class SigninViewController: UIViewController {
         mainNavigationVC.modalPresentationStyle = .fullScreen
         mainNavigationVC.modalTransitionStyle = .flipHorizontal
         present(mainNavigationVC,animated: true,completion: nil)
+    }
+    
+    private func verifyUserAndPassoword() -> Bool {
+        var retorno = false
+        if let usuario = DatabaseController.verifySignin(email: emailTextFiled.text ?? "", senha: passwordTextField.text ?? "")
+        {
+            defaults.set(usuario.email, forKey: "email")
+            defaults.set(usuario.nome, forKey: "nome")
+            defaults.set(true, forKey: "signed")
+            retorno = true
+
+        }
+        return retorno
     }
     
     /*
