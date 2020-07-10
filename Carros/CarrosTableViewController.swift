@@ -10,6 +10,7 @@ import UIKit
 
 class CarrosTableViewController: UITableViewController {
 
+    @IBOutlet weak var userLogged: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +19,8 @@ class CarrosTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        userLogged.text = UserDefaults.standard.string(forKey: "nome")
+
     }
 
     // MARK: - Table view data source

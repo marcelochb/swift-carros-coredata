@@ -17,7 +17,6 @@
 		AB17F03A24AFFACB00BC9AAF /* CarrosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */; };
 		AB17F03C24AFFAE300BC9AAF /* MarcasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */; };
 		AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */; };
-		AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17F04024B000F600BC9AAF /* Tipos.swift */; };
 		ABD19FAA24B1260800EDB2DA /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FA924B1260800EDB2DA /* SigninViewController.swift */; };
 		ABD19FAC24B1262200EDB2DA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */; };
 		ABD19FAE24B164F100EDB2DA /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */; };
@@ -44,7 +43,6 @@
 		AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosTableViewController.swift; sourceTree = "<group>"; };
 		AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcasTableViewController.swift; sourceTree = "<group>"; };
 		AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTableViewController.swift; sourceTree = "<group>"; };
-		AB17F04024B000F600BC9AAF /* Tipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipos.swift; sourceTree = "<group>"; };
 		ABD19FA924B1260800EDB2DA /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				AB17F03924AFFACB00BC9AAF /* CarrosTableViewController.swift */,
 				AB17F03B24AFFAE300BC9AAF /* MarcasTableViewController.swift */,
 				AB17F03D24AFFAFD00BC9AAF /* ModeloTableViewController.swift */,
-				AB17F04024B000F600BC9AAF /* Tipos.swift */,
 				ABD19FA924B1260800EDB2DA /* SigninViewController.swift */,
 				ABD19FAB24B1262200EDB2DA /* SignupViewController.swift */,
 				ABD19FAD24B164F100EDB2DA /* MainNavigationController.swift */,
@@ -205,7 +202,6 @@
 				ABD19FC824B2894900EDB2DA /* Marcas+CoreDataProperties.swift in Sources */,
 				ABD19FCA24B28A0700EDB2DA /* DatabaseController.swift in Sources */,
 				AB17F03A24AFFACB00BC9AAF /* CarrosTableViewController.swift in Sources */,
-				AB17F04124B000F600BC9AAF /* Tipos.swift in Sources */,
 				AB17F03E24AFFAFD00BC9AAF /* ModeloTableViewController.swift in Sources */,
 				AB17F01D24AFF15200BC9AAF /* SceneDelegate.swift in Sources */,
 				ABD19FC724B2894900EDB2DA /* Marcas+CoreDataClass.swift in Sources */,
