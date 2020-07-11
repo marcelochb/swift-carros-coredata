@@ -2,7 +2,7 @@
 //  Modelos+CoreDataProperties.swift
 //  Carros
 //
-//  Created by Marcelo Block Teixeira on 05/07/20.
+//  Created by Marcelo Block Teixeira on 11/07/20.
 //  Copyright © 2020 Marcelo Block Teixeira. All rights reserved.
 //
 //

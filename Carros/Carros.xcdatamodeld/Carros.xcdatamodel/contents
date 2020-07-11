@@ -4,12 +4,13 @@
         <attribute name="nome" attributeType="String"/>
         <attribute name="sigla" attributeType="String"/>
         <attribute name="tipo" attributeType="String"/>
-        <relationship name="usuarios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuarios"/>
+        <relationship name="modelos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Modelos"/>
+        <relationship name="usuarios" maxCount="1" deletionRule="Nullify" destinationEntity="Usuarios"/>
     </entity>
     <entity name="Modelos" representedClassName=".Modelos" syncable="YES">
         <attribute name="ano" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nome" attributeType="String"/>
-        <relationship name="marcas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marcas"/>
+        <relationship name="marcas" maxCount="1" deletionRule="Nullify" destinationEntity="Marcas"/>
     </entity>
     <entity name="Usuarios" representedClassName=".Usuarios" syncable="YES">
         <attribute name="cpf" attributeType="String"/>
@@ -18,10 +19,11 @@
         <attribute name="idade" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nome" attributeType="String"/>
         <attribute name="senha" attributeType="String"/>
+        <relationship name="marcas" toMany="YES" deletionRule="Nullify" destinationEntity="Marcas"/>
     </entity>
     <elements>
-        <element name="Marcas" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Modelos" positionX="-54" positionY="18" width="128" height="88"/>
-        <element name="Usuarios" positionX="-63" positionY="27" width="128" height="133"/>
+        <element name="Marcas" positionX="-232.3984375" positionY="-9.25390625" width="128" height="118"/>
+        <element name="Modelos" positionX="-142.72265625" positionY="259.94140625" width="128" height="88"/>
+        <element name="Usuarios" positionX="-478.671875" positionY="128.1015625" width="128" height="148"/>
     </elements>
 </model>

@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+import CoreData
 class CarrosTableViewController: UITableViewController {
-
+    var marcas: [Marcas] = []
+    var modelos: [Modelos] = []
+    var usuario: Usuarios?
     @IBOutlet weak var userLogged: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,31 +22,62 @@ class CarrosTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         userLogged.text = UserDefaults.standard.string(forKey: "nome")
-
+        let rightBarButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: nil)
+              self.navigationItem.rightBarButtonItem = rightBarButton
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.reloadDataOfTableView()
+    }
+    
+    func reloadDataOfTableView() {
+          do {
+              if let marcas = try DatabaseController.persistentContainer.viewContext.fetch(Marcas.fetchRequest()) as? [Marcas] {
+                let marcasFiltradas = marcas.filter {
+                    $0.usuarios == DatabaseController.findUserByEmail(email: UserDefaults.standard.string(forKey: "email") ?? "")
+                }
+                  self.marcas = marcasFiltradas
+              }
+              if let modelos = try DatabaseController.persistentContainer.viewContext.fetch(Modelos.fetchRequest()) as? [Modelos] {
+                          self.modelos = modelos
+                      }
+            
+          } catch {
+              print("Erro no banco, não conseguiu realizar a busca")
+          }
+          self.tableView.reloadData()
+      }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return marcas.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+     let modelo = modelos.filter {
+           $0.marcas == marcas[section]
+       }
+        return modelo.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOfTableView", for: indexPath)
+        let modelo = modelos.filter {
+            $0.marcas == marcas[indexPath.section]
+        }
+        cell.textLabel?.text = modelo[indexPath.row].nome
 
-        // Configure the cell...
 
         return cell
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return marcas[section].nome! + " - " + marcas[section].tipo!
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

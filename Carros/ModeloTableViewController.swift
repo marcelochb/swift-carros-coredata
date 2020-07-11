@@ -7,8 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class ModeloTableViewController: UITableViewController {
+    let utils = Utils()
+    var modelosOfTableView: [Modelos] = []
+    
+    @IBOutlet weak var marcaLabel: UILabel!
+    
+    @IBOutlet weak var modeloTextField: UITextField! {
+        didSet {
+            modeloTextField.attributedPlaceholder = utils.placeHolderTextWithColor(placeHolderTextLabel: "modelo")
+        }
+    }
+    
+    @IBOutlet weak var anoTextField: UITextField! {
+        didSet {
+            anoTextField.attributedPlaceholder = utils.placeHolderTextWithColor(placeHolderTextLabel: "ano")
+        }
+    }
+    var modelos: [Modelos] = []
+    var marca: Marcas?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,31 +36,74 @@ class ModeloTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //  self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        marcaLabel.text = (marca?.nome)! + " - " + (marca?.sigla)!
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reloadModeloOfTableView()
     }
 
+    
+    @IBAction func salvarModelo(_ sender: UIButton)
+    {
+        if let modelo = NSEntityDescription.insertNewObject(forEntityName: "Modelos", into: DatabaseController.persistentContainer.viewContext) as? Modelos
+        {
+            modelo.nome = modeloTextField.text
+            modelo.ano = Int16(anoTextField.text!)!
+            modelo.marcas = marca
+            DatabaseController.saveContext()
+            modeloTextField.text = ""
+            anoTextField.text = ""
+            self.reloadModeloOfTableView()
+            
+            let alert = UIAlertController(title: "Notificação", message: "Modelo cadastrado com sucesso.", preferredStyle: .alert)
+                  alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                  NSLog("The \"OK\" alert occured.")
+                  }))
+                  self.present(alert, animated: true, completion: nil)
+
+            
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return modelosOfTableView.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOfModelTableView", for: indexPath)
+        let modelo = modelosOfTableView[indexPath.row]
+        cell.textLabel?.text = modelo.nome
+        cell.detailTextLabel?.text = String(modelo.ano)
+        
 
         return cell
     }
-    */
-
+    
+    func reloadModeloOfTableView() {
+          do {
+            if let modelos = try DatabaseController.persistentContainer.viewContext.fetch(Modelos.fetchRequest()) as? [Modelos] {
+                let modelosFiltrado = modelos.filter {
+                    $0.marcas == self.marca
+                }
+                  self.modelosOfTableView = modelosFiltrado
+              }
+          } catch {
+              print("Erro no banco, não conseguiu realizar a busca")
+          }
+          self.tableView.reloadData()
+      }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

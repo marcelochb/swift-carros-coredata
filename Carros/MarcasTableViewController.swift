@@ -24,7 +24,8 @@ class MarcasTableViewController: UITableViewController,UIPickerViewDelegate, UIP
         }
     }
     
-   
+    @IBOutlet weak var salvarMarcaButton: UIButton!
+    
     var typesOfCarData: [String] = [String]()
     var selectedTypeOfCar = String()
     var marcasOfTableView: [Marcas] = []
@@ -64,24 +65,37 @@ class MarcasTableViewController: UITableViewController,UIPickerViewDelegate, UIP
     
 
     @IBAction func saveMarca(_ sender: UIButton) {
-        if let marca = NSEntityDescription.insertNewObject(forEntityName: "Marcas", into: DatabaseController.persistentContainer.viewContext) as? Marcas {
-            marca.nome = marcaTextField.text
-            marca.sigla = siglaTextField.text
-            marca.tipo = selectedTypeOfCar
-            marca.usuarios = DatabaseController.findUserByEmail(email: UserDefaults.standard.string(forKey: "email") ?? "")
-            DatabaseController.saveContext()
-            
-            self.reloadMarcaOfTableView()
-            
-            let alert = UIAlertController(title: "Notificação", message: "Marca cadastrada com sucesso.", preferredStyle: .alert)
-                  alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        if marcaTextField.text! == "" || siglaTextField.text! == "" {
+            let alert = UIAlertController(title: "Notificação", message: "Preencha os campos para salvar!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .cancel, handler: { _ in
                   NSLog("The \"OK\" alert occured.")
                   }))
                   self.present(alert, animated: true, completion: nil)
 
+        } else {
+            if let marca = NSEntityDescription.insertNewObject(forEntityName: "Marcas", into: DatabaseController.persistentContainer.viewContext) as? Marcas {
+                marca.nome = marcaTextField.text
+                marca.sigla = siglaTextField.text
+                marca.tipo = selectedTypeOfCar
+                marca.usuarios = DatabaseController.findUserByEmail(email: UserDefaults.standard.string(forKey: "email") ?? "")
+                DatabaseController.saveContext()
+                
+                marcaTextField.text = ""
+                siglaTextField.text = ""
+                
+                self.reloadMarcaOfTableView()
+                
+                let alert = UIAlertController(title: "Notificação", message: "Marca cadastrada com sucesso.", preferredStyle: .alert)
+                      alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                      NSLog("The \"OK\" alert occured.")
+                      }))
+                      self.present(alert, animated: true, completion: nil)
+
+                
+            }
             
+
         }
-        
         
         
         
@@ -109,13 +123,18 @@ class MarcasTableViewController: UITableViewController,UIPickerViewDelegate, UIP
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedTypeOfCar = typesOfCarData[row]
+        self.salvarMarcaButton.isEnabled = (selectedTypeOfCar != "Selecione o tipo:")
+        self.reloadMarcaOfTableView()
     }
     // MARK: - Table view data source
     
     func reloadMarcaOfTableView() {
           do {
               if let marcas = try DatabaseController.persistentContainer.viewContext.fetch(Marcas.fetchRequest()) as? [Marcas] {
-                  self.marcasOfTableView = marcas
+                let marcasFiltrada = marcas.filter {
+                    ($0.tipo == self.selectedTypeOfCar)
+                }
+                  self.marcasOfTableView = marcasFiltrada
               }
           } catch {
               print("Erro no banco, não conseguiu realizar a busca")
@@ -142,11 +161,15 @@ class MarcasTableViewController: UITableViewController,UIPickerViewDelegate, UIP
         cell.detailTextLabel?.textColor = .white
         cell.textLabel?.text = marca.sigla
         cell.detailTextLabel?.text = marca.nome
-
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! ModeloTableViewController
+        viewController.marca = marcasOfTableView[tableView.indexPathForSelectedRow!.row]
+        
+      
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
