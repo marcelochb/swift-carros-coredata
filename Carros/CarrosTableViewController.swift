@@ -22,13 +22,26 @@ class CarrosTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         userLogged.text = UserDefaults.standard.string(forKey: "nome")
-        let rightBarButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        let rightBarButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handleLogoff) )
               self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.reloadDataOfTableView()
     }
+    
+    @objc private func handleLogoff() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        UserDefaults.standard.set(false, forKey: "signed")
+        guard let logoffNavigationVC = mainStoryboard.instantiateViewController(withIdentifier: "LogoffNavigationController") as? LogoffNavigationController else
+        {
+            return
+        }
+        logoffNavigationVC.modalPresentationStyle = .fullScreen
+        logoffNavigationVC.modalTransitionStyle = .flipHorizontal
+        present(logoffNavigationVC,animated: true,completion: nil)
+    }
+    
     
     func reloadDataOfTableView() {
           do {
